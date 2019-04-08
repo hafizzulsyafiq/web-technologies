@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <link rel="icon" href="images/logo.png">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+        function computeBMI() {
+            var height=Number(document.getElementById("height").value);
+            var weight=Number(document.getElementById("weight").value);
+            var BMI=weight/(height*height);
+            document.getElementById("output").innerHTML = Math.round(BMI);
+
+            if (BMI<18.5)
+                document.getElementById("comment").innerHTML = "Underweight";
+            if (BMI>=18.5 && BMI<25)
+                document.getElementById("comment").innerHTML = "Normal";
+            if (BMI>=25 && BMI<30)
+                document.getElementById("comment").innerHTML = "Overweight";
+            if (BMI>=30)
+                document.getElementById("comment").innerHTML = "Obese";
+        }
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="logo"> <img src="logo.png"> </div>
+                <ul class="main-nav">
+                    <li> <a href="index.php"> Home </a></li>
+                    <li> <a href="about.php"> About </a></li>
+                    <li> <a href="bmi.php"> BMI </a></li>
+                    <li> <a href="calorie.php"> Calorie Consumption</a></li>
+                    <li> <a href="login.php"> Login </a></li>
+                </ul>
+            </div>
+            <div class = "description">
+                <h1>Body Mass Index Calculator  </h1> &nbsp;
+                <p>Enter your height, in meters: <input type="text" class="textbox"id="height"/> m</p>
+                <p2>Enter your weight, in kilograms: <input type="text" class="textbox" id="weight"/> kg </p2>
+                <input type="submit" class="calc-button" value="Calculate BMI" onclick="computeBMI();">
+                <h1>Your BMI is: <span id="output"> </span></h1>
+                <h2>This means you are: <span id="comment"></span></h2> 
+            </div>
+        </header>
+    </body>
+</html>
